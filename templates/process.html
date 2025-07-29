@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Process Dataset{% endblock %}
+
+{% block content %}
+    <h1>Upload Dataset for Association Rule Mining</h1>
+    <hr style="margin: 3em auto; width: 100%; border: 0; border-top: 2px solid #282727;">
+    <p>Don't have a file? <a href="{{ url_for('download_sample') }}">Download sample CSV</a></p>
+    <p><strong>Instructions:</strong> Download the sample CSV, open it in Excel, fill it with your transaction data using 0s and 1s, then upload it below.</p>
+
+    <hr style="margin: 3em auto; width: 100%; border: 0; border-top: 2px solid #282727;">
+    <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="dataset" class="form-label">Choose CSV file:</label>
+            <input type="file" class="form-control" name="dataset" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="min_support" class="form-label">Minimum Support (e.g. 0.2):</label>
+            <input type="number" class="form-control" name="min_support" step="0.01" value="0.2" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="min_confidence" class="form-label">Minimum Confidence (e.g. 0.6):</label>
+            <input type="number" class="form-control" name="min_confidence" step="0.01" value="0.6" required>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="min_threshold" class="form-label">Minimum Lift Threshold (e.g. 1.0):</label>
+            <input type="number" class="form-control" name="min_threshold" step="0.01" value="1.0" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Run Mining</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Mining Results{% endblock %}
+
+{% block content %}
+    <h1>Association Rule Mining Results</h1>
+
+<!-- Download Button with JS for Auto-Refresh -->
+    <div style="margin-bottom: 1em; text-align: right;">
+        {% if rules %}
+            <button onclick="downloadAndRefresh()" class="btn btn-success">
+                ⬇️ Download CSV
+            </button>
+        {% else %}
+            <button class="btn btn-secondary" disabled>
+                ⬇️ Download CSV
+            </button>
+        {% endif %}
+    </div>
+
+    <script>
+        function downloadAndRefresh() {
+            const link = document.createElement('a');
+            link.href = "{{ url_for('download_results') }}";
+            link.download = 'association_rules.csv';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Delay page refresh to give time for download
+            setTimeout(() => {
+                location.reload();
+            }, 500);
+        }
+    </script>
+
+
+
+    {% if rules %}
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Antecedent</th>
+                    <th>Consequent</th>
+                    <th>Support</th>
+                    <th>Confidence</th>
+                    <th>Lift</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rule in rules %}
+                    <tr>
+                        <td>{{ rule.antecedents }}</td>
+                        <td>{{ rule.consequents }}</td>
+                        <td>{{ "%.2f"|format(rule.support) }}</td>
+                        <td>{{ "%.2f"|format(rule.confidence) }}</td>
+                        <td>{{ "%.2f"|format(rule.lift) }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data/rules found. Go back to <a href="/process" class="text-decoration-none">Process</a>, Upload and Try adjusting the parameters.</p>
+    {% endif %}
+{% endblock %}

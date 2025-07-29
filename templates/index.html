@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Home - AprioriApp{% endblock %}
+
+{% block content %}
+<!-- Scrollable Main Content -->
+<div>
+       
+    <div>
+        <section id="cover" style="text-align: center;">
+            <h2><img src="/static/images/ustp-logo.png" alt="" style="height: 70px; vertical-align: middle;"><strong>University of Science and Technology of Southern Philippines</strong><img src="/static/images/citc-logo.png" alt="" style="height: 70px; vertical-align: middle;"></h2>
+            <br><br>
+            <p style="font-size: 1.2em; padding: 0; margin: 0;"><strong>EL104 - Business Intelligence</strong></p>
+            <p style="font-size: 2em; padding: 0; margin: 0;"><strong>AprioriApp: Association Rule Mining (Final PIT)</strong></p>
+            <br><br>
+            <p style="font-size: 1.2em;"><strong>Professor:</strong> <br>Dr. Jocelyn B Barbosa</p>
+            <br><br>
+            <p style="font-size: 1.2em;"><strong>Group Members:</strong></p>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 1em;">
+                <li>Adrian Karlo Siangco</li>
+                <li>Cookie Mae Dahan</li>
+                <li>Alma Rose Alid-ab</li>
+                <li>Emmanuel Almonia</li>
+            </ul>
+            
+            
+        </section>
+
+        <hr style="margin: 3em auto; width: 100%; border: 0; border-top: 2px solid #282727;">
+        <!-- 📚 Introduction -->
+        <section id="introduction">
+            <h1>🎬 Introduction</h1>
+            <p>
+                <strong>Associate Rule Mining (ARM)</strong> is a key data minin technique used to uncover <strong>hidden patterns, correlations, and relationships</strong>
+                within large datasets. Its primary goal is to discover interesting <strong>if-then relationships</strong>, known as <strong>association rules</strong>, that
+                help describe how items or attributes co-occur in data. <br><br>
+                Originally popularized through <strong>market basket analysis</strong>, ARM helps answer questions like:
+                <blockquote class="fancy">
+                    <strong>|</strong>&nbsp;&nbsp;&nbsp;&nbsp;<q>If a customer buys item A, how likely are they to also buy item B?</q>
+                </blockquote>
+                The ARM process typically involves two keys steps:
+                <br>
+                1. <strong>Frequent Itemset Generation</strong> - Identifyng item combinations that occur together frequently above a minimum support threshold.
+                <br>
+                2. <strong>Rule Generation</strong> - Creating strong and valid rules from these itemsets based on metrics like <strong>support, confidece, and lift.</strong>
+                <br><br>
+                One of the most foundational algorithms used in ARM is the <strong>Apriori algorithm</strong>, which systematically reduces the search space using the principle
+                that <strong>all subsets of a frequent itemset must also be frequent.</strong> By translating raw data into understandable rules, ARM enables organizations to 
+                extract actionable insights and enhance strategic outcomes.
+            </p>
+        </section>
+
+    </div>
+    <hr style="margin: 3em auto; width: 100%; border: 0; border-top: 2px solid #282727;">
+    <section id="video">
+        <h1>🎥 Watch: Apriori Explained</h1>
+    
+        <p>🧠 Apriori Algorithm – Market Basket Analysis</p>
+
+        <!-- Video (centered + responsive) -->
+        <div class="ratio ratio-16x9 mb-4">
+            <video controls class="rounded shadow-sm">
+                <source src="{{ url_for('static', filename='videos/apriori.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+    <hr style="margin: 3em auto; width: 100%; border: 0; border-top: 2px solid #282727;">
+    <section id="how-it-works">
+        <h1>🔥 How It Works</h1>
+        <blockquote class="fancy">
+            <strong>|</strong>&nbsp;&nbsp;&nbsp;&nbsp;Discover hidden patterns and associations in your data with just a few clicks.
+        </blockquote>
+
+        <div>
+            <ol>
+            <li><strong>Step 1:</strong> Upload your transaction dataset (.csv format).</li>
+            <li><strong>Step 2:</strong> Set the minimum support, confidence or lift thresholds.</li>
+            <li><strong>Step 3:</strong> Click "Run" to execute the Apriori algorithm.</li>
+            <li><strong>Step 4:</strong> View the frequent itemsets and generated association rules.</li>
+            <li><strong>Step 5:</strong> Use the insights to make data-driven decisions.</li>
+            </ol>
+        </div>
+    </section>
+    <hr style="margin: 3em auto; width: 100%; border: 0; border-top: 2px solid #282727;">
+    <section id="conclusion">
+        <h1>✅ Conclusion</h1>
+        <p>
+            This application demonstrates how Association Rule Mining — powered by the Apriori algorithm — can extract valuable insights from transactional data. By identifying frequent itemsets and generating strong association rules, users can uncover hidden patterns that support smarter business decisions. Whether used in retail, e-commerce, or data analysis, ARM remains a powerful tool in the field of data mining.
+        </p>
+    </section>
+
+
+
+
+</div>
+    
+
+{% endblock %}
+
