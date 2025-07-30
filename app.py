@@ -37,15 +37,22 @@ def upload():
     min_threshold = float(request.form.get('min_threshold', 2.0))
 
     if file and file.filename.endswith('.csv'):
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(filepath)
-        rules = run_association_rule_mining(filepath, min_support, min_confidence, min_threshold)
+       # ✅ Secure filename
+        from werkzeug.utils import secure_filename
+        filename = secure_filename(file.filename)
 
+        # ✅ Use /tmp in production (like Render)
+        upload_dir = '/tmp'
+        filepath = os.path.join(upload_dir, filename)
+
+        # ✅ Save file
+        file.save(filepath)
+
+        # ✅ Run mining
+        rules = run_association_rule_mining(filepath, min_support, min_confidence, min_threshold)
         session['rules'] = json.dumps(rules)
 
-        return redirect(
-            url_for('results')
-        )
+        return redirect(url_for('results'))
 
     return "Invalid file format. Please upload a CSV."
 
