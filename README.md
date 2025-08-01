@@ -17,10 +17,14 @@ ApprioApp is a web-based application that enables users to perform **association
 ## 🧠 Background: What Is Association Rule Mining?
 
 Association rule mining uncovers interesting relationships (e.g. itemsets often bought together) in large datasets. The Apriori algorithm—introduced by Agrawal & Srikant in 1994—finds frequent itemsets and assembles them into implication rules such as:
-{bread, butter} ⇒ {milk}
 
----
-meaning customers who buy bread & butter often also buy milk. It relies on the principle that all subsets of a frequent itemset must also be frequent :contentReference[oaicite:2]{index=2}. Support measures how often an itemset occurs; confidence ranks how often an item Y appears given X; lift measures dependence beyond random chance :contentReference[oaicite:3]{index=3}.
+```bash
+{bread, butter} ⇒ {milk}
+```
+
+meaning customers who buy bread & butter often also buy milk. It relies on the principle that all subsets of a frequent itemset must also be frequent :contentReference[oaicite:2]{index=2}. Support = measures how often an itemset occurs; 
+Confidence = ranks how often an item Y appears given X; 
+Lift = measures dependence beyond random chance :contentReference[oaicite:3]{index=3}.
 
 ---
 
