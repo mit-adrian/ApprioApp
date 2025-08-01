@@ -36,3 +36,26 @@ $ git clone https://github.com/mit-adrian/ApprioApp.git
 $ cd ApprioApp
 $ pip install -r requirements.txt
 $ python app.py
+```
+---
+
+## ⚙️ Tech Stack
+
+### Backend
+- **Python 3**
+- **Flask** – Web framework
+- **Pandas** – Data manipulation
+- **Custom Apriori module** – Implements association rule mining
+
+### Frontend
+- **HTML5 + CSS3**
+- **Bootstrap** – Responsive design
+- **Jinja2** – Templating engine (via Flask)
+
+### Tools & Utilities
+- **CSV File Handling**
+- **Session Management** (via Flask)
+- **Modular Python scripts** (e.g., `mining/apriori.py`)
+
+---
+
