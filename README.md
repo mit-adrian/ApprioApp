@@ -1,6 +1,6 @@
 # ApprioApp
 
-ApprioApp is a web-based application that enables users to perform **association rule mining using the Apriori algorithm**, helping discover meaningful patterns in transaction-like datasets and visualize the results.
+[ApprioApp](https://github.com/LF-Decentralized-Trust-labs/chaindeploy/tree/main) is a web-based application that enables users to perform **association rule mining using the Apriori algorithm**, helping discover meaningful patterns in transaction-like datasets and visualize the results.
 
 ---
 
@@ -62,4 +62,5 @@ $ python app.py
 - **Modular Python scripts** (e.g., `mining/apriori.py`)
 
 ---
+
 
